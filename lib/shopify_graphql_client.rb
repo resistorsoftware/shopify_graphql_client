@@ -59,7 +59,7 @@ module ShopifyGraphQLClient
     end
 
     def schema_path
-      File.join(__dir__, "../schema.json")
+      File.join(__dir__, "lib/schema.json")
     end
   end
 
