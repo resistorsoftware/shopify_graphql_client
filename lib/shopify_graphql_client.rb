@@ -59,7 +59,7 @@ module ShopifyGraphQLClient
     end
 
     def schema_path
-      File.join(Rails.root, 'lib/schema.json')
+      File.join(Rails.root, '../schema.json')
     end
   end
 
@@ -73,7 +73,7 @@ module ShopifyGraphQLClient
 
     def uri
       ShopifyAPI::Base.site.dup.tap do |uri|
-        uri.path = "/admin/api/graphql.json"
+        uri.path = "/admin/api/2019-10/graphql.json"
       end
     end
   end
