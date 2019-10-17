@@ -51,10 +51,8 @@ module ShopifyGraphQLClient
     end
 
     def load_schema
-      unless File.exist?(schema_path)
-        raise Error, "The schema file does not exist at #{schema_path}"
-      end
-
+      raise Error, "The schema file does not exist at #{schema_path}" unless File.exist?(schema_path)
+      puts "Loading the local schema.json attached to this gem"
       GraphQL::Client.load_schema(schema_path)
     end
 
@@ -72,7 +70,6 @@ module ShopifyGraphQLClient
     end
 
     def uri
-      puts "Shopify Store: #{ShopifyAPI::Base.site}"
       ShopifyAPI::Base.site.dup.tap do |uri|
         uri.path = "/admin/api/2019-10/graphql.json"
       end
