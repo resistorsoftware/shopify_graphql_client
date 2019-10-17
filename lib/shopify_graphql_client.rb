@@ -59,7 +59,7 @@ module ShopifyGraphQLClient
     end
 
     def schema_path
-      File.join(__dir__, "lib/schema.json")
+      File.join(Rails.root, 'lib/schema.json')
     end
   end
 
