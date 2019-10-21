@@ -28,7 +28,7 @@ module ShopifyGraphQLClient
       result = client.query(*args)
       errors = result.errors
 
-      if result.errors&.any?
+      if result.errors&.any
         messages = result.errors.messages.map do |path, messages|
           if messages.length > 0
             messages = messages.map{|message| "  - #{message}"}
