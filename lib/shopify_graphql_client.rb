@@ -37,6 +37,7 @@ module ShopifyGraphQLClient
             "#{path}: #{messages.first}"
           end
         end
+        puts "\nMessages from Error#{messages}\n"
         if messages =~ /throttled/i 
           puts "\nGraphQL Throttled\n"
           sleep(10)
