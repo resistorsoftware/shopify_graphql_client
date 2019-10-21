@@ -37,6 +37,7 @@ module ShopifyGraphQLClient
             "#{path}: #{messages.first}"
           end
         end
+        
         puts "\nMessages from Error#{messages}\n"
         if messages.join("\n") =~ /throttled/i 
           sleep(10)
@@ -44,9 +45,9 @@ module ShopifyGraphQLClient
         else
           raise GraphQLError, messages.join("\n")
         end
+      else
+        result
       end
-
-      result
     end
 
     private
