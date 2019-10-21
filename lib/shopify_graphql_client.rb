@@ -38,7 +38,7 @@ module ShopifyGraphQLClient
           end
         end
         puts "\nMessages from Error#{messages}\n"
-        if messages =~ /throttled/i 
+        if messages.join("\n") =~ /throttled/i 
           sleep(10)
           query(*args)
         else
