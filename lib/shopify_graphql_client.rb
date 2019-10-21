@@ -37,8 +37,13 @@ module ShopifyGraphQLClient
             "#{path}: #{messages.first}"
           end
         end
-
-        raise GraphQLError, messages.join("\n")
+        if messages =~ /throttled/i 
+          puts "\nGraphQL Throttled\n"
+          sleep(10)
+          query(*args)
+        else
+          raise GraphQLError, messages.join("\n")
+        end
       end
 
       result
