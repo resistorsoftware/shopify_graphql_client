@@ -37,8 +37,6 @@ module ShopifyGraphQLClient
             "#{path}: #{messages.first}"
           end
         end
-        
-        puts "\nMessages from Error#{messages}\n"
         if messages.join("\n") =~ /throttled/i 
           sleep(10)
           query(*args)
@@ -77,7 +75,7 @@ module ShopifyGraphQLClient
 
     def uri
       ShopifyAPI::Base.site.dup.tap do |uri|
-        uri.path = "/admin/api/2019-10/graphql.json"
+        uri.path = "/admin/api/2020-01/graphql.json"
       end
     end
   end
